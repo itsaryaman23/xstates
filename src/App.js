@@ -94,7 +94,7 @@ function App() {
             </option>
           ))}
         </select>
-        <select name="state" onChange={handleSelectState}>
+        <select disabled={!selectedCountry} name="state" onChange={handleSelectState}>
           <option disabled selected>
             Select State
           </option>
@@ -104,7 +104,7 @@ function App() {
             </option>
           ))}
         </select>
-        <select name="city" onChange={handleSelectCity}>
+        <select disabled = {!selectedState} name="city" onChange={handleSelectCity}>
           <option disabled selected>
             Select City
           </option>
