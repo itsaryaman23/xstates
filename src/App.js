@@ -24,13 +24,13 @@ function App() {
       } catch (e) {
         alert("error fetching data");
       }
-    };
+    }
     fetchCountry();
   }, []);
 
   useEffect(() => {
-    try {
-      const fetchState = async (country) => {
+    const fetchState = async (country) => {
+      try {
         const d = await fetch(
           "https://crio-location-selector.onrender.com/country=" +
             country +
@@ -38,9 +38,9 @@ function App() {
         );
         const jsData = await d.json();
         setState(jsData);
-      };
-    } catch (e) {
-      alert("error fetching data");
+      } catch (e) {
+        alert("error fetching data");
+      }
     }
     if (selectedCountry) {
       fetchState(selectedCountry);
@@ -49,23 +49,20 @@ function App() {
 
   useEffect(() => {
     const fetchCity = async (country, state) => {
-      try{
-
+      try {
         const d = await fetch(
           "https://crio-location-selector.onrender.com/country=" +
-          country +
-          "/state=" +
-          state +
-          "/cities"
+            country +
+            "/state=" +
+            state +
+            "/cities"
         );
         const jsData = await d.json();
         setCity(jsData);
+      } catch (e) {
+        alert("error fetching data");
       }
-      catch(e)
-      {
-        alert('error fetching data');
-      }
-      };
+    };
     if (selectedState) {
       fetchCity(selectedCountry, selectedState);
     }
