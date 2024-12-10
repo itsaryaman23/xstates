@@ -47,6 +47,7 @@ function App() {
     }
   }, [selectedCountry]);
 
+
   useEffect(() => {
     const fetchCity = async (country, state) => {
       try {
